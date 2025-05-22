@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Slide from './Slide';
 import SlideNavigation from './SlideNavigation';
@@ -16,12 +17,12 @@ const Portfolio = () => {
   
   const slides = [
     { id: 'home', component: null },
-    { id: 'about', component: <AboutMe className="animate-item" /> },
-    { id: 'info', component: <PersonalInfo className="animate-item" /> },
-    { id: 'projects', component: <Projects className="animate-item" /> },
-    { id: 'achievements', component: <Achievements className="animate-item" /> },
-    { id: 'experience', component: <Experience className="animate-item" /> },
-    { id: 'portfolios', component: <PreviousPortfolios className="animate-item" /> },
+    { id: 'about', component: <AboutMe /> },
+    { id: 'info', component: <PersonalInfo /> },
+    { id: 'projects', component: <Projects /> },
+    { id: 'achievements', component: <Achievements /> },
+    { id: 'experience', component: <Experience /> },
+    { id: 'portfolios', component: <PreviousPortfolios /> },
   ];
 
   const handleNavigate = (index: number) => {
@@ -97,16 +98,16 @@ const Portfolio = () => {
         className="flex items-center justify-center text-center"
       >
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-item">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Welcome to My Portfolio
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 animate-item">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10">
             A DevOps Engineer & Cloud Architect passionate about building scalable, 
             reliable infrastructure and automating everything.
           </p>
           <button 
             onClick={() => setCurrentSlide(1)} 
-            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-all duration-300 animate-item"
+            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-all duration-300"
           >
             Explore Portfolio
           </button>
