@@ -94,10 +94,10 @@ const Portfolio = () => {
       <Slide 
         id="home" 
         isActive={currentSlide === 0} 
-        backgroundImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+        backgroundImage="https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
         className="flex items-center justify-center text-center"
       >
-        <div className="text-center animate-fade-in">
+        <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Welcome to My Portfolio
           </h1>
@@ -107,7 +107,7 @@ const Portfolio = () => {
           </p>
           <button 
             onClick={() => setCurrentSlide(1)} 
-            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-all duration-300"
           >
             Explore Portfolio
           </button>
@@ -121,7 +121,7 @@ const Portfolio = () => {
           id={slide.id} 
           isActive={currentSlide === index + 1}
         >
-          <div className={`animate-fade-in ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}>
             {slide.component}
           </div>
         </Slide>

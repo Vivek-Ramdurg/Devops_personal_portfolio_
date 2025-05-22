@@ -33,7 +33,7 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
           onClick={() => onNavigate(index)}
           className={cn(
             "nav-dot transition-all duration-300",
-            index === currentSlide ? "nav-dot-active animate-pulse" : "nav-dot-inactive"
+            index === currentSlide ? "nav-dot-active" : "nav-dot-inactive"
           )}
           aria-label={`Go to slide ${index + 1}`}
         />
@@ -44,10 +44,10 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
           onClick={prevSlide}
           disabled={currentSlide === 0}
           className={cn(
-            "p-2 rounded-full bg-portfolio-primary text-white transition-all duration-300 transform",
+            "p-2 rounded-full bg-portfolio-primary text-white transition-all duration-300",
             currentSlide === 0 
               ? "opacity-50 cursor-not-allowed" 
-              : "hover:bg-portfolio-dark hover:scale-110"
+              : "hover:bg-portfolio-dark"
           )}
           aria-label="Previous slide"
         >
@@ -57,10 +57,10 @@ const SlideNavigation: React.FC<SlideNavigationProps> = ({
           onClick={nextSlide}
           disabled={currentSlide === slides.length - 1}
           className={cn(
-            "p-2 rounded-full bg-portfolio-primary text-white transition-all duration-300 transform",
+            "p-2 rounded-full bg-portfolio-primary text-white transition-all duration-300",
             currentSlide === slides.length - 1 
               ? "opacity-50 cursor-not-allowed" 
-              : "hover:bg-portfolio-dark hover:scale-110"
+              : "hover:bg-portfolio-dark"
           )}
           aria-label="Next slide"
         >
