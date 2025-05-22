@@ -1,10 +1,7 @@
 
 import React, { ReactNode, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import * as animeJs from 'animejs';
-
-// Get the default export from anime.js
-const anime = animeJs.default || animeJs;
+import anime from 'animejs';
 
 interface SlideProps {
   id: string;
