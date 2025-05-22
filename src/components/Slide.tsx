@@ -21,8 +21,8 @@ const Slide: React.FC<SlideProps> = ({
     <section 
       id={id}
       className={cn(
-        "portfolio-slide",
-        isActive ? "slide-active" : "slide-inactive",
+        "portfolio-slide transition-all duration-500",
+        isActive ? "slide-active animate-fade-in" : "slide-inactive",
         backgroundImage ? "bg-cover bg-center" : "",
         className
       )}
@@ -31,7 +31,11 @@ const Slide: React.FC<SlideProps> = ({
       {backgroundImage && (
         <div className="absolute inset-0 bg-black/50 z-0"></div>
       )}
-      <div className={cn("relative z-10 w-full max-w-7xl mx-auto", backgroundImage ? "text-white" : "")}>
+      <div className={cn(
+        "relative z-10 w-full max-w-7xl mx-auto", 
+        backgroundImage ? "text-white" : "",
+        isActive ? "animate-slide-in" : ""
+      )}>
         {children}
       </div>
     </section>

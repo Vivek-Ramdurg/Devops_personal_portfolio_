@@ -12,6 +12,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const Portfolio = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [wheelTimer, setWheelTimer] = useState(false);
   const isMobile = useIsMobile();
   
   const slides = [
@@ -75,8 +76,6 @@ const Portfolio = () => {
       }
     };
     
-    let wheelTimer = false;
-    
     // Only add event listener if not on mobile
     if (!isMobile) {
       window.addEventListener('wheel', handleWheel, { passive: false });
@@ -87,7 +86,7 @@ const Portfolio = () => {
         window.removeEventListener('wheel', handleWheel);
       }
     };
-  }, [currentSlide, slides.length, isMobile]);
+  }, [currentSlide, slides.length, isMobile, wheelTimer]);
 
   return (
     <div className="relative min-h-screen bg-gray-50">
@@ -98,7 +97,7 @@ const Portfolio = () => {
         backgroundImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
         className="flex items-center justify-center text-center"
       >
-        <div className="text-center">
+        <div className="text-center animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             Welcome to My Portfolio
           </h1>
@@ -108,7 +107,7 @@ const Portfolio = () => {
           </p>
           <button 
             onClick={() => setCurrentSlide(1)} 
-            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-colors"
+            className="px-8 py-3 bg-white text-portfolio-dark font-medium rounded-full hover:bg-portfolio-light transition-all duration-300 transform hover:scale-105"
           >
             Explore Portfolio
           </button>
@@ -122,7 +121,9 @@ const Portfolio = () => {
           id={slide.id} 
           isActive={currentSlide === index + 1}
         >
-          {slide.component}
+          <div className={`animate-fade-in ${currentSlide === index + 1 ? 'opacity-100' : 'opacity-0'}`}>
+            {slide.component}
+          </div>
         </Slide>
       ))}
 
